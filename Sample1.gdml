@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Translated from Fastrad 3.9.1.19934 the 2019/10/29 at 12h27 -->
+<gdml xmlns:gdml="http://cern.ch/2001/Schemas/GDML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+	<define>
+		<constant name="HALFPI" value="pi/2.0"/>
+		<constant name="PI" value="1.0*pi"/>
+		<constant name="TWOPI" value="2.0*pi"/>
+		<position name="center"/>
+		<rotation name="identity"/>
+	</define>
+
+	<materials>
+		<element name="videRef" formula="VACUUM" Z="1">
+			<atom value="1"/>
+		</element>
+		<element name="aluminum" formula="Al" Z="13">
+			<atom value="26.981539"/>
+		</element>
+		<element name="silicon" formula="Si" Z="14">
+			<atom value="28.0855"/>
+		</element>
+		<element name="copper" formula="Cu" Z="29">
+			<atom value="63.546"/>
+		</element>
+		<element name="hydrogen" formula="H" Z="1">
+			<atom value="1.00794"/>
+		</element>
+		<element name="carbon" formula="C" Z="6">
+			<atom value="12.0107"/>
+		</element>
+		<element name="nitrogen" formula="N" Z="7">
+			<atom value="14.007"/>
+		</element>
+		<element name="phosphorus" formula="P" Z="15">
+			<atom value="30.97376"/>
+		</element>
+		<element name="sulfur" formula="S" Z="16">
+			<atom value="32.065"/>
+		</element>
+		<element name="chromium" formula="Cr" Z="24">
+			<atom value="51.9961"/>
+		</element>
+		<element name="manganese" formula="Mn" Z="25">
+			<atom value="54.938045"/>
+		</element>
+		<element name="iron" formula="Fe" Z="26">
+			<atom value="55.845"/>
+		</element>
+		<element name="nickel" formula="Ni" Z="28">
+			<atom value="58.6934"/>
+		</element>
+		<material name="VACUUM" formula="VACUUM">
+			<D value ="1E-25" unit="g/cm3"/>
+			<fraction n="1.0" ref="videRef"/>
+		</material>
+		<material name="ALUMINUM" formula="ALUMINUM">
+			<D value ="2.7" unit="g/cm3"/>
+			<fraction n="1." ref="aluminum"/>
+		</material>
+		<material name="SILICON" formula="SILICON">
+			<D value ="2.33" unit="g/cm3"/>
+			<fraction n="1." ref="silicon"/>
+		</material>
+		<material name="ALUMINUM_2219_T852" formula="ALUMINUM_2219_T852">
+			<D value ="3.1" unit="g/cm3"/>
+			<fraction n="0.92" ref="aluminum"/>
+			<fraction n="0.08" ref="copper"/>
+		</material>
+		<material name="POLYETHYLENE" formula="POLYETHYLENE">
+			<D value ="0.93" unit="g/cm3"/>
+			<fraction n="0.143716" ref="hydrogen"/>
+			<fraction n="0.856284" ref="carbon"/>
+		</material>
+		<material name="STEEL_STAINLESS_A286" formula="STEEL_STAINLESS_A286">
+			<D value ="7.92" unit="g/cm3"/>
+			<fraction n="0.00075" ref="carbon"/>
+			<fraction n="0.00125" ref="nitrogen"/>
+			<fraction n="0.005" ref="silicon"/>
+			<fraction n="0.0003" ref="phosphorus"/>
+			<fraction n="0.00015" ref="sulfur"/>
+			<fraction n="0.18" ref="chromium"/>
+			<fraction n="0.0875" ref="manganese"/>
+			<fraction n="0.67505" ref="iron"/>
+			<fraction n="0.05" ref="nickel"/>
+		</material>
+	</materials>
+
+	<solids>
+		<sphere name="__World__SphereRef" rmin="0." rmax="121.42878987339182117" startphi="0." deltaphi="TWOPI" starttheta="0." deltatheta="PI"/>
+		<box name="Box0x__2601171391904" x="100." y="80." z="30."/>
+		<sphere name="Sphere0x__2601168492064" rmin="0." rmax="40." startphi="0." deltaphi="TWOPI" starttheta="0." deltatheta="PI"/>
+		<xtru name="PrismZ0x__2601168490624">
+			<twoDimVertex x="20." y="0."/>
+			<twoDimVertex x="0." y="0."/>
+			<twoDimVertex x="0." y="60."/>
+			<section zOrder="0" zPosition="0." xOffset="0" yOffset="0" scalingFactor="1.0"/>
+			<section zOrder="1" zPosition="20." xOffset="0" yOffset="0" scalingFactor="1.0"/>
+		</xtru>
+	</solids>
+
+	<structure>
+		<volume name="Element_Box0x__2601172143440__vol">
+			<materialref ref="STEEL_STAINLESS_A286"/>
+			<solidref ref="Box0x__2601171391904"/>
+			<auxiliary auxtype="SensitiveVolume" auxvalue="true"/>
+		</volume>
+		<volume name="Element_Sphere0x__2601172145024__vol">
+			<materialref ref="STEEL_STAINLESS_A286"/>
+			<solidref ref="Sphere0x__2601168492064"/>
+			<auxiliary auxtype="SensitiveVolume" auxvalue="true"/>
+		</volume>
+		<volume name="Element_Triangle0x__2601172143792__vol">
+			<materialref ref="STEEL_STAINLESS_A286"/>
+			<solidref ref="PrismZ0x__2601168490624"/>
+			<auxiliary auxtype="SensitiveVolume" auxvalue="true"/>
+		</volume>
+		<volume name="Structure">
+			<materialref ref="VACUUM"/>
+			<solidref ref="__World__SphereRef"/>
+			<physvol name="Element_Box0x__2601172143440">
+				<volumeref ref="Element_Box0x__2601172143440__vol"/>
+				<position name="posRef_Element_Box0x__2601172143440" z="40."/>
+			</physvol>
+			<physvol name="Element_Sphere0x__2601172145024">
+				<volumeref ref="Element_Sphere0x__2601172145024__vol"/>
+				<position name="posRef_Element_Sphere0x__2601172145024" z="-50."/>
+			</physvol>
+			<physvol name="Element_Triangle0x__2601172143792">
+				<volumeref ref="Element_Triangle0x__2601172143792__vol"/>
+			</physvol>
+		</volume>
+	</structure>
+
+	<setup name="Default" version="1.0">
+		<world ref="Structure"/>
+	</setup>
+</gdml>
