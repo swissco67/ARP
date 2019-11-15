@@ -45,7 +45,7 @@ target_link_libraries(dose ${Geant4_LIBRARIES})
 # relies on these scripts being in the current working directory.
 #
 set(dose_SCRIPTS
-   vis.mac physics.mac primary.mac run.mac  MergeFiles LoadPlotNtuple.C
+   Sample1.gdml vis.mac physics.mac primary.mac run.mac  MergeFiles LoadPlotNtuple.C
   )
 
 foreach(_script ${dose_SCRIPTS})
