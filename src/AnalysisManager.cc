@@ -29,10 +29,10 @@ void AnalysisManager::book()
   manager->SetVerboseLevel(2);
  
   // Create a root file
-  G4String fileName = "radioprotection.root";
+  G4String fileName = "dose.root";
 
   // Create directories  
-  manager->SetNtupleDirectoryName("radioprotection_ntuple");
+  manager->SetNtupleDirectoryName("dose_ntuple");
   
 
   G4bool fileOpen = manager->OpenFile(fileName);
