@@ -1,8 +1,8 @@
 {
 
 //Open File where data has been stored!
-TFile f("radioprotection_NEW.root");
-TDirectory* dir = f.Get("radioprotection_ntuple"); 
+TFile f("dose_NEW.root");
+TDirectory* dir = f.Get("dose_ntuple"); 
 
 TNtuple * ntuple1 = (TNtuple*)dir->Get("101");   
 TNtuple * ntuple2 = (TNtuple*)dir->Get("102"); 
