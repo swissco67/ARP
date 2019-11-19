@@ -46,7 +46,7 @@ void DetectorConstruction::ConstructSDandField()
 
   G4SDManager* SDman = G4SDManager::GetSDMpointer();
   
-  G4String trackerChamberSDname = "Tracker";
+  G4String trackerChamberSDname = "true";
   SensitiveDetector* SD = 
     new SensitiveDetector(trackerChamberSDname, "DetectorHitsCollection", analysis);
   SDman->AddNewDetector( SD );
