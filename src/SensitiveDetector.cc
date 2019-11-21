@@ -44,7 +44,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* aStep,
 
   G4String volumeName = aStep -> GetPreStepPoint() -> GetPhysicalVolume()-> GetName();
 
-  if(volumeName != "SV_phys1") 
+  if(volumeName != "Tracker") 
     return false;  
 
   SensitiveDetectorHit* newHit = new SensitiveDetectorHit();

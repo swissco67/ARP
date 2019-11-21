@@ -40,7 +40,7 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
        G4double charge = (*fSecondary)[lp1] -> GetDynamicParticle() -> GetDefinition() -> GetPDGCharge();
        G4int AA = (*fSecondary)[lp1] -> GetDynamicParticle() -> GetDefinition() -> GetBaryonNumber();
           
-     if (volumeName == "SV_phys1") 
+     if (volumeName == "Tracker") 
 //Testing with larger volume!
 //if (volumeName == "DiaVol_phys")
 	 {
